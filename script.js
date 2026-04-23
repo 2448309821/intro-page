@@ -7,20 +7,25 @@ function updateProgress() {
 }
 window.addEventListener('scroll', updateProgress, { passive: true });
 
-/* ===== Active nav link ===== */
+/* ===== Active nav link + side nav ===== */
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+const sideItems = document.querySelectorAll('.side-nav-item');
 
 function updateActiveNav() {
   let current = '';
   sections.forEach(sec => {
-    if (window.scrollY >= sec.offsetTop - 100) current = sec.id;
+    if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
   });
   navLinks.forEach(a => {
     a.classList.toggle('active', a.getAttribute('href') === '#' + current);
   });
+  sideItems.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
 }
 window.addEventListener('scroll', updateActiveNav, { passive: true });
+updateActiveNav();
 
 /* ===== Fade-up on scroll ===== */
 const fadeEls = document.querySelectorAll('.fade-up');

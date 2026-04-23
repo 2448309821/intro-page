@@ -294,6 +294,49 @@ nav {
 .contact-link-value { font-size: .875rem; font-weight: 600; }
 .contact-link-arrow { color: var(--text-3); font-size: .875rem; }
 
+/* ===== Side navigation ===== */
+.side-nav {
+  position: fixed; right: 1.5rem; top: 50%;
+  transform: translateY(-50%); z-index: 50;
+  display: flex; flex-direction: column; gap: .35rem;
+}
+
+.side-nav-item {
+  display: flex; align-items: center; justify-content: flex-end;
+  gap: .6rem; text-decoration: none; padding: .3rem 0; cursor: pointer;
+}
+
+.side-nav-item::before {
+  content: attr(data-label);
+  font-size: .72rem; font-weight: 600; color: var(--text-3);
+  opacity: 0; transform: translateX(6px);
+  transition: opacity .2s, transform .2s;
+  white-space: nowrap; letter-spacing: .02em;
+  background: var(--bg); padding: .2rem .55rem;
+  border-radius: 4px; border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.side-nav-item:hover::before,
+.side-nav-item.active::before {
+  opacity: 1; transform: translateX(0);
+}
+
+.side-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--border); flex-shrink: 0;
+  transition: background .25s, transform .25s, box-shadow .25s;
+}
+
+.side-nav-item:hover .side-dot { background: var(--blue); }
+
+.side-nav-item.active .side-dot {
+  background: var(--blue); transform: scale(1.6);
+  box-shadow: 0 0 0 3px var(--blue-light);
+}
+
+@media (max-width: 1100px) { .side-nav { display: none; } }
+
 /* ===== Footer ===== */
 footer {
   text-align: center; padding: 2rem;
