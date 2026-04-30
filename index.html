@@ -406,5 +406,60 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- ===== Design Tweaks Panel (開発用) ===== -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="tweaks-panel.jsx" type="text/babel"></script>
+  <script type="text/babel">
+    const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+      "primaryColor": "#2563EB",
+      "borderRadius": 12,
+      "fontSize": 16,
+      "density": "regular"
+    }/*EDITMODE-END*/;
+
+    function DesignTweaks() {
+      const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+      // CSS変数に即時反映
+      React.useEffect(() => {
+        const r = document.documentElement;
+        r.style.setProperty('--blue',      t.primaryColor);
+        r.style.setProperty('--blue-dark', t.primaryColor + 'cc');
+        r.style.setProperty('--blue-light', t.primaryColor + '18');
+        r.style.setProperty('--radius',    t.borderRadius + 'px');
+        r.style.fontSize = t.fontSize + 'px';
+      }, [t]);
+
+      return (
+        <TweaksPanel title="🎨 デザイン調整">
+          <TweakSection label="カラー" />
+          <TweakColor  label="メインカラー"  value={t.primaryColor}
+                       onChange={(v) => setTweak('primaryColor', v)} />
+
+          <TweakSection label="タイポグラフィ" />
+          <TweakSlider label="文字サイズ" value={t.fontSize}
+                       min={13} max={20} step={1} unit="px"
+                       onChange={(v) => setTweak('fontSize', v)} />
+
+          <TweakSection label="形状" />
+          <TweakSlider label="角丸" value={t.borderRadius}
+                       min={0} max={28} step={2} unit="px"
+                       onChange={(v) => setTweak('borderRadius', v)} />
+
+          <TweakSection label="密度" />
+          <TweakRadio  label="レイアウト" value={t.density}
+                       options={['compact', 'regular', 'comfy']}
+                       onChange={(v) => setTweak('density', v)} />
+        </TweaksPanel>
+      );
+    }
+
+    const _tweakRoot = document.createElement('div');
+    document.body.appendChild(_tweakRoot);
+    ReactDOM.createRoot(_tweakRoot).render(<DesignTweaks />);
+  </script>
 </body>
 </html>
