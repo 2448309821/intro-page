@@ -7,7 +7,7 @@ function updateProgress() {
 }
 window.addEventListener('scroll', updateProgress, { passive: true });
 
-/* ===== Active nav link + side nav ===== */
+/* ===== Active nav + side nav ===== */
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 const sideItems = document.querySelectorAll('.side-nav-item');
@@ -30,7 +30,7 @@ updateActiveNav();
 /* ===== Fade-up on scroll ===== */
 const fadeEls = document.querySelectorAll('.fade-up');
 const observer = new IntersectionObserver(entries => {
-  entries.forEach((entry, i) => {
+  entries.forEach(entry => {
     if (entry.isIntersecting) {
       const delay = entry.target.dataset.delay || 0;
       setTimeout(() => entry.target.classList.add('visible'), delay);
@@ -40,27 +40,13 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 fadeEls.forEach(el => observer.observe(el));
 
-/* ===== Skill bar animation ===== */
-const skillFills = document.querySelectorAll('.skill-fill');
-const skillObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      el.style.width = el.dataset.pct + '%';
-      skillObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.3 });
-skillFills.forEach(el => skillObserver.observe(el));
-
-/* ===== Smooth nav click ===== */
+/* ===== Smooth scroll ===== */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      const offset = 70;
-      window.scrollTo({ top: target.offsetTop - offset, behavior: 'smooth' });
+      window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
     }
   });
 });
