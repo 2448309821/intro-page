@@ -465,13 +465,14 @@ nav {
 
 .strengths-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.25rem;
 }
 .strength-card { padding: 1.35rem; }
 .strength-card:nth-child(1) { background: linear-gradient(135deg, var(--blue-soft), #fff); }
 .strength-card:nth-child(2) { background: linear-gradient(135deg, var(--green-soft), #fff); }
 .strength-card:nth-child(3) { background: linear-gradient(135deg, var(--amber-soft), #fff); }
+.strength-card:nth-child(4) { background: linear-gradient(135deg, #F1F5F9, #fff); }
 .strength-icon {
   width: 34px;
   height: 34px;
@@ -557,11 +558,16 @@ footer {
 }
 
 .fade-up {
-  opacity: 1;
-  transform: none;
-  transition: opacity .2s ease, transform .2s ease;
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(8px);
+  transition: opacity .65s ease, transform .65s ease, filter .65s ease;
 }
-.fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
 
 @media (max-width: 1100px) {
   .side-nav { display: none; }
