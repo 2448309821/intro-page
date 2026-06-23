@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="裴元嘉（Yuanjia Pei）— 情報工学専攻 大学院生 / ソフトウェア開発志望" />
+  <meta name="description" content="裴元嘉（Yuanjia Pei）— 東京都市大学大学院 情報専攻。ソフトウェア開発、AI活用、セキュリティ、データ分析に関心を持つポートフォリオ。" />
   <title>Yuanjia Pei | Portfolio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23111827'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial' font-size='22' font-weight='700' fill='white'%3EYP%3C/text%3E%3C/svg%3E" />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet" />
 </head>
 <body>
 
 <div id="progress-bar"></div>
 
-<!-- Side nav -->
-<aside class="side-nav" id="side-nav">
+<aside class="side-nav" id="side-nav" aria-label="Section navigation">
   <a class="side-nav-item" href="#hero"      data-label="Home"><span class="side-dot"></span></a>
   <a class="side-nav-item" href="#about"     data-label="About"><span class="side-dot"></span></a>
   <a class="side-nav-item" href="#skills"    data-label="Skills"><span class="side-dot"></span></a>
@@ -23,14 +23,13 @@
   <a class="side-nav-item" href="#research"  data-label="Research"><span class="side-dot"></span></a>
   <a class="side-nav-item" href="#timeline"  data-label="Timeline"><span class="side-dot"></span></a>
   <a class="side-nav-item" href="#strengths" data-label="Strengths"><span class="side-dot"></span></a>
-  <a class="side-nav-item" href="#career"    data-label="Career Goal"><span class="side-dot"></span></a>
+  <a class="side-nav-item" href="#career"    data-label="Career"><span class="side-dot"></span></a>
   <a class="side-nav-item" href="#contact"   data-label="Contact"><span class="side-dot"></span></a>
 </aside>
 
-<!-- ===== Nav ===== -->
 <nav>
-  <a class="nav-logo" href="#hero">
-    <span class="nav-logo-icon">&lt;/&gt;</span> Yuanjia Pei
+  <a class="nav-logo" href="#hero" aria-label="Yuanjia Pei home">
+    <span class="nav-logo-icon">YP</span> Yuanjia Pei
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
@@ -39,427 +38,387 @@
     <li><a href="#research">Research</a></li>
     <li><a href="#timeline">Timeline</a></li>
     <li><a href="#strengths">Strengths</a></li>
-    <li><a href="#career">Career Goal</a></li>
+    <li><a href="#career">Career</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- ===== Hero ===== -->
 <section id="hero">
   <div class="hero-content">
+    <p class="hero-kicker">Tokyo City University / Computer Software Lab</p>
     <h1 class="hero-name">Yuanjia Pei</h1>
-    <p class="hero-subtitle">情報工学専攻 / Job Seeker / Software &amp; Research</p>
+    <p class="hero-subtitle">Software Engineering / AI / Security / Data Analysis</p>
     <p class="hero-desc">
-      情報工学を専攻し、SBOM 生成ツールの精度評価とソフトウェア依存関係の分析に取り組んでいます。
-      正確な情報整理と課題解決力を活かし、ソフトウェア開発職を志望しています。
+      東京都市大学大学院で情報工学を専攻しています。SBOM生成ツールの精度評価を出発点に、
+      現在はVEXや脆弱性情報を起点として修復に必要な文脈を整理し、AI/LLMを用いた修正支援と検証方法に関心を持っています。
     </p>
+    <div class="hero-highlights" aria-label="Profile highlights">
+      <span>Python automation</span>
+      <span>Web systems</span>
+      <span>Software supply chain security</span>
+    </div>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#">📄 履歴書をダウンロード</a>
-      <a class="btn btn-outline" href="#contact">✉ 連絡する</a>
+      <a class="btn btn-primary" href="#projects">Projectsを見る</a>
+      <a class="btn btn-outline" href="#contact">連絡先を見る</a>
     </div>
   </div>
-  <div class="hero-visual">
-    <span class="avatar-emoji">👤</span>
+  <div class="hero-visual" aria-label="Profile photo">
+    <img class="avatar-img" src="assets/profile-photo.jpeg" alt="裴 元嘉のプロフィール写真" />
   </div>
 </section>
 
-<!-- ===== About ===== -->
 <section id="about">
   <div class="section-wrap">
     <div class="section-header fade-up">
-      <span class="section-icon">👤</span>
+      <span class="section-icon">01</span>
       <h2 class="section-title">About</h2>
     </div>
 
     <div class="about-cards fade-up" data-delay="100">
       <div class="about-card">
-        <div class="about-card-header"><span class="icon">🎓</span> 学校</div>
+        <div class="about-card-header">University</div>
         <div class="about-card-main">東京都市大学</div>
         <div class="about-card-sub">Tokyo City University</div>
       </div>
       <div class="about-card">
-        <div class="about-card-header"><span class="icon">📚</span> 専攻</div>
-        <div class="about-card-main">情報工学専攻</div>
-        <div class="about-card-sub">Graduate School of<br>Integrative Science and Engineering</div>
+        <div class="about-card-header">Major</div>
+        <div class="about-card-main">総合理工学 情報専攻</div>
+        <div class="about-card-sub">Graduate School of Integrative Science and Engineering</div>
       </div>
       <div class="about-card">
-        <div class="about-card-header"><span class="icon">🔬</span> 研究室</div>
+        <div class="about-card-header">Lab</div>
         <div class="about-card-main">計算機ソフトウェア研究室</div>
         <div class="about-card-sub">Computer Software Lab</div>
       </div>
       <div class="about-card">
-        <div class="about-card-header"><span class="icon">💪</span> 強みのキーワード</div>
+        <div class="about-card-header">Direction</div>
         <div class="about-card-tags">
-          <span class="about-tag">課題解決力</span>
-          <span class="about-tag">責任感</span>
-          <span class="about-tag">継続学習</span>
+          <span class="about-tag">Software</span>
+          <span class="about-tag">AI</span>
+          <span class="about-tag">Security</span>
+          <span class="about-tag">Data</span>
         </div>
       </div>
     </div>
 
     <div class="about-text fade-up" data-delay="200">
       <p>
-        中国・黒竜江省出身、2002 年生まれ。2017 年 9 月に来日し、日本語ゼロの状態から学習を開始しました。
-        大清水中学校を卒業後、相模原弥栄高等学校を経て、2022 年に東京都市大学へ入学。
-        現在は大学院で SBOM（Software Bill of Materials）生成ツールの精度評価に関する研究に取り組んでいます。
+        中国・黒竜江省出身。2017年9月に来日し、日本語ゼロの状態から学習を始めました。
+        大清水中学校、相模原弥栄高等学校を経て、東京都市大学 情報工学部に進学。
+        現在は大学院で、ソフトウェア工学とセキュリティに関する研究に取り組んでいます。
       </p>
       <p>
-        来日当初にお世話になった日本語教室でボランティアとして恩返しをしながら、
-        ローテーション管理の Web システムを開発・導入するなど、
-        現場の課題を技術で解決する経験を積んできました。
-        「落ち着いて、誠実に」を信条とし、チームに貢献できるエンジニアを目指しています。
+        技術を「作って終わり」にせず、使う人の状況や運用の負担まで考えることを大切にしています。
+        日本語教室のボランティア活動では、講師ローテーション決めを効率化するWebシステムを作成し、
+        手作業で数時間かかっていた調整を、確認しやすい運用フローに変えました。
       </p>
     </div>
   </div>
 </section>
 
-<!-- ===== Skills ===== -->
 <section id="skills">
   <div class="section-wrap">
     <div class="section-header fade-up">
-      <span class="section-icon">&lt;/&gt;</span>
+      <span class="section-icon">02</span>
       <h2 class="section-title">Skills</h2>
     </div>
     <div class="skills-cats fade-up" data-delay="100">
-
       <div class="skill-cat">
-        <div class="skill-cat-header"><span class="icon">💻</span> Programming</div>
+        <div class="skill-cat-header">Programming</div>
         <ul>
-          <li>Python</li>
-          <li>Java</li>
-          <li>C / C++</li>
-          <li>JavaScript</li>
+          <li>Python: 実験集計、自動化、データ整理</li>
+          <li>Java / C / C++: 大学授業・演習</li>
+          <li>JavaScript: Webページ・UI実装</li>
         </ul>
       </div>
-
       <div class="skill-cat">
-        <div class="skill-cat-header"><span class="icon">🌐</span> Web</div>
+        <div class="skill-cat-header">Web / UI</div>
         <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>React</li>
+          <li>HTML / CSS / JavaScript</li>
+          <li>React / Next.js: 学習・応募課題で使用</li>
+          <li>レスポンシブUIと情報設計</li>
         </ul>
       </div>
-
       <div class="skill-cat">
-        <div class="skill-cat-header"><span class="icon">🔧</span> Tools</div>
+        <div class="skill-cat-header">Research / Security</div>
         <ul>
-          <li>Git</li>
-          <li>Docker</li>
-          <li>Linux / WSL</li>
+          <li>SBOM / SCA</li>
+          <li>CVE / VEX / Vulnerability analysis</li>
+          <li>PoC / oracle を用いた検証への関心</li>
         </ul>
       </div>
-
       <div class="skill-cat">
-        <div class="skill-cat-header"><span class="icon">🔬</span> Research</div>
+        <div class="skill-cat-header">Tools</div>
         <ul>
-          <li>SBOM</li>
-          <li>SCA</li>
-          <li>Vulnerability Analysis</li>
+          <li>Git / GitHub</li>
+          <li>Docker / Linux / WSL</li>
+          <li>PowerPoint / Excel / LaTeX</li>
         </ul>
       </div>
-
       <div class="skill-cat">
-        <div class="skill-cat-header"><span class="icon">📄</span> Office</div>
+        <div class="skill-cat-header">Interests</div>
         <ul>
-          <li>PowerPoint</li>
-          <li>Excel</li>
-          <li>LaTeX</li>
+          <li>AIによる開発効率化</li>
+          <li>テスト自動化・レビュー支援</li>
+          <li>安全で使いやすいWebサービス</li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ===== Projects ===== -->
 <section id="projects">
   <div class="section-wrap">
     <div class="section-header fade-up">
-      <span class="section-icon">⚙️</span>
+      <span class="section-icon">03</span>
       <h2 class="section-title">Projects</h2>
     </div>
     <div class="projects-grid fade-up" data-delay="100">
-
-      <div class="project-card">
-        <div class="project-thumb">🔍</div>
+      <article class="project-card">
+        <div class="project-thumb">SBOM</div>
         <div class="project-body">
-          <h3 class="project-title">SBOM 生成精度評価</h3>
+          <p class="project-meta">Research / Python automation</p>
+          <h3 class="project-title">SBOM生成ツールの精度評価</h3>
           <p class="project-desc">
-            Python 環境向け 4 種の SBOM 生成ツールの出力を正解データと比較し、
-            再現率・適合率で評価。約 1500 件の GitHub プロジェクトを対象に自動化実験を実施し、
-            精度に影響する 4 つの要因を特定。
+            4種類のSBOM生成ツールを比較し、約1500件のGitHubプロジェクトを対象に評価。
+            Pythonで実験結果の整理を自動化し、再現率・適合率などの観点から出力差を分析しました。
           </p>
           <div class="project-tags">
             <span class="project-tag">Python</span>
             <span class="project-tag">SBOM</span>
-            <span class="project-tag">SCA</span>
-            <span class="project-tag">Analysis</span>
+            <span class="project-tag">Data analysis</span>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card">
-        <div class="project-thumb">🌐</div>
+      <article class="project-card">
+        <div class="project-thumb">WAON</div>
         <div class="project-body">
-          <h3 class="project-title">日本語教室ローテーション Web システム</h3>
+          <p class="project-meta">Volunteer DX / Web system</p>
+          <h3 class="project-title">日本語教室ローテーションWebシステム</h3>
           <p class="project-desc">
-            ボランティア教室の毎月の担当割り当てを自動化する Web システムを設計・開発。
-            講師ごとの複雑な条件を「必須」と「考慮」に分類し、自動スケジューリングを実装。
-            作業時間を数時間 → 数分に短縮。
+            ボランティア講師の出席状況、担当可能クラス、月の担当回数などを整理し、
+            担当表を生成・確認できるWebシステムを作成。スマートフォンでも入力しやすいUIを重視しました。
           </p>
-          <a class="project-link" href="https://2448309821.github.io/waon-rotation-web/" target="_blank" rel="noopener">🌐 サイトを見る →</a>
+          <a class="project-link" href="https://2448309821.github.io/waon-rotation-web/" target="_blank" rel="noopener">サイトを見る</a>
           <div class="project-tags">
             <span class="project-tag">Web</span>
-            <span class="project-tag">スケジューリング</span>
-            <span class="project-tag">DX</span>
+            <span class="project-tag">Scheduling</span>
             <span class="project-tag">UI/UX</span>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="project-card">
-        <div class="project-thumb">👤</div>
+      <article class="project-card">
+        <div class="project-thumb">SDPBL</div>
         <div class="project-body">
-          <h3 class="project-title">ポートフォリオ Web ページ</h3>
+          <p class="project-meta">Team project / Simulation</p>
+          <h3 class="project-title">学内食堂の混雑問題解決</h3>
           <p class="project-desc">
-            本ページ。HTML / CSS / JavaScript のみで構築し、
-            GitHub Pages でホスティング。レスポンシブ対応、スクロール連動ナビゲーション、
-            Intersection Observer によるアニメーションを実装。
+            SDPBLの授業で、学科の異なるメンバーと学内食堂の混雑問題に取り組みました。
+            意見と優先課題を整理し、提案を具体的に共有するためのシミュレーションプログラムを作成しました。
           </p>
-          <a class="project-link" href="https://2448309821.github.io/intro-page/" target="_blank" rel="noopener">🌐 サイトを見る →</a>
+          <div class="project-tags">
+            <span class="project-tag">Teamwork</span>
+            <span class="project-tag">Simulation</span>
+            <span class="project-tag">Problem solving</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-thumb">PORT</div>
+        <div class="project-body">
+          <p class="project-meta">Static site / GitHub Pages</p>
+          <h3 class="project-title">ポートフォリオWebページ</h3>
+          <p class="project-desc">
+            本ページをHTML/CSS/JavaScriptで作成し、GitHub Pagesで公開。
+            レスポンシブ対応、スクロール連動ナビゲーション、Intersection Observerを用いた表示アニメーションを実装しました。
+          </p>
+          <a class="project-link" href="https://2448309821.github.io/intro-page/" target="_blank" rel="noopener">サイトを見る</a>
           <div class="project-tags">
             <span class="project-tag">HTML</span>
             <span class="project-tag">CSS</span>
             <span class="project-tag">JavaScript</span>
           </div>
         </div>
-      </div>
-
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ===== Research ===== -->
 <section id="research">
   <div class="section-wrap">
     <div class="section-header fade-up">
-      <span class="section-icon">📊</span>
+      <span class="section-icon">04</span>
       <h2 class="section-title">Research</h2>
     </div>
-    <div class="research-card fade-up" data-delay="100">
-      <h3 class="research-title">SBOM 生成精度評価研究</h3>
-      <p class="research-desc">
-        本研究は Python 生態系を対象に、異なる SBOM 生成ツールの出力結果を比較し、
-        依頼完整性・依頼准確性・バージョン正確性などの観点から精度を評価するものです。
-        依頼関係分析と脆弱性データベースとの照合を通じて、SBOM が脆弱性検出と
-        セキュリティ評価においてどの程度有効かを検証しています。
-      </p>
+    <div class="research-grid fade-up" data-delay="100">
+      <article class="research-card">
+        <p class="research-label">Completed / Presented</p>
+        <h3 class="research-title">SBOM生成精度評価</h3>
+        <p class="research-desc">
+          ソフトウェア部品表であるSBOMの生成ツールを比較し、部品情報や脆弱性情報の正確さを評価しています。
+          出力差を整理し、ツールの精度に影響する要因を分析しました。
+          2026年 電子情報通信学会 総合大会では口頭発表を行いました。
+        </p>
+        <div class="research-tags">
+          <span class="research-tag">SBOM</span>
+          <span class="research-tag">Precision / Recall</span>
+          <span class="research-tag">IEICE 2026</span>
+        </div>
+      </article>
 
-      <div class="research-flow">
-        <div class="flow-step">
-          <div class="flow-icon">📦</div>
-          <div class="flow-label">Python<br>Package</div>
+      <article class="research-card research-card-current">
+        <p class="research-label">Current direction</p>
+        <h3 class="research-title">VEXから修復支援へ</h3>
+        <p class="research-desc">
+          現在は、VEXやCVE・アドバイザリ情報を起点に、依存ライブラリの脆弱性に対して
+          修正に必要な文脈を整理し、AI/LLMによる修正支援と検証方法を検討しています。
+          生成された修正をそのまま信頼するのではなく、PoCや検証条件に基づき有効性を確認する流れに関心があります。
+        </p>
+        <div class="research-tags">
+          <span class="research-tag">VEX</span>
+          <span class="research-tag">CVE</span>
+          <span class="research-tag">LLM agents</span>
+          <span class="research-tag">Validation</span>
         </div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step">
-          <div class="flow-icon">🔗</div>
-          <div class="flow-label">Dependency<br>Analysis</div>
-        </div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step">
-          <div class="flow-icon">📋</div>
-          <div class="flow-label">SBOM<br>Generation</div>
-        </div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step">
-          <div class="flow-icon">🛡️</div>
-          <div class="flow-label">Vulnerability<br>Evaluation</div>
-        </div>
-      </div>
-
-      <div class="research-tags">
-        <span class="research-tag">SBOM</span>
-        <span class="research-tag">Python Ecosystem</span>
-        <span class="research-tag">Dependency Analysis</span>
-        <span class="research-tag">Vulnerability Evaluation</span>
-      </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ===== Timeline ===== -->
 <section id="timeline">
   <div class="section-wrap">
     <div class="section-header fade-up">
-      <span class="section-icon">📅</span>
+      <span class="section-icon">05</span>
       <h2 class="section-title">Timeline</h2>
     </div>
     <div class="timeline fade-up" data-delay="100">
-
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-date">2002年 8月</div>
+        <div class="tl-date">2002年8月</div>
         <div class="tl-title">中国・黒竜江省で誕生</div>
-        <div class="tl-desc">氷と雪の大地、ハルビンの近くで育つ。</div>
+        <div class="tl-desc">中国東北部で育ちました。</div>
       </div>
-
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-date">2017年 9月</div>
+        <div class="tl-date">2017年9月</div>
         <div class="tl-title">来日</div>
-        <div class="tl-org">中国 → 日本・相模原市</div>
-        <div class="tl-desc">中学卒業後に単身来日。日本語ゼロからスタート。</div>
+        <div class="tl-org">中国 → 日本</div>
+        <div class="tl-desc">日本語ゼロの状態から学習を開始しました。</div>
       </div>
-
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-date">2017年 — 2019年</div>
+        <div class="tl-date">2017年 - 2019年</div>
         <div class="tl-title">大清水中学校 編入・卒業</div>
-        <div class="tl-org">相模原市</div>
-        <div class="tl-desc">2 年間で日常会話・学業レベルの日本語を習得。</div>
+        <div class="tl-desc">日本の学校生活に適応し、日常会話と学業に必要な日本語を学びました。</div>
       </div>
-
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-date">2019年 — 2022年</div>
+        <div class="tl-date">2019年 - 2022年</div>
         <div class="tl-title">相模原弥栄高等学校 卒業</div>
-        <div class="tl-org">相模原市</div>
-        <div class="tl-desc">日本語で理数系科目を学び、大学受験に挑む。</div>
+        <div class="tl-desc">理数系科目を中心に学び、情報工学分野への関心を深めました。</div>
       </div>
-
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-date">2022年 — 2026年</div>
-        <div class="tl-title">東京都市大学 情報工学部 入学・卒業</div>
-        <div class="tl-org">東京都市大学</div>
-        <div class="tl-desc">ソフトウェア工学・セキュリティなどを学び、卒業研究で SBOM 分野を選択。</div>
+        <div class="tl-date">2022年 - 2026年</div>
+        <div class="tl-title">東京都市大学 情報工学部</div>
+        <div class="tl-desc">ソフトウェア工学、セキュリティ、機械学習などを学びました。</div>
       </div>
-
       <div class="tl-item active">
         <div class="tl-dot"></div>
-        <div class="tl-date">2026年 — 現在</div>
-        <div class="tl-title">東京都市大学 大学院 進学</div>
+        <div class="tl-date">2026年 - 現在</div>
+        <div class="tl-title">東京都市大学大学院 総合理工学 情報専攻</div>
         <div class="tl-org">計算機ソフトウェア研究室</div>
-        <div class="tl-desc">企業との共同研究として SBOM 生成ツールの精度評価に取り組む。</div>
+        <div class="tl-desc">SBOM評価と、脆弱性情報を活用した修復支援の研究方向に取り組んでいます。</div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ===== Strengths ===== -->
 <section id="strengths">
   <div class="section-wrap">
     <div class="section-header fade-up">
-      <span class="section-icon">⭐</span>
+      <span class="section-icon">06</span>
       <h2 class="section-title">Strengths</h2>
     </div>
     <div class="strengths-grid fade-up" data-delay="100">
-
       <div class="strength-card">
-        <div class="strength-icon">💡</div>
-        <h3 class="strength-title">課題解決力</h3>
+        <div class="strength-icon">A</div>
+        <h3 class="strength-title">相手の立場から考える</h3>
         <p class="strength-desc">
-          研究で約 1500 件のプロジェクトを手作業で比較する課題に直面した際、
-          まず 1 件で手順を整理し、Python スクリプトで自動化。
-          課題を分析し、最適な方法で改善につなげる力を持っています。
+          日本語教室のWebシステムでは、年配の先生やスマートフォン中心の利用者でも使いやすいよう、
+          入力を単純化し、複雑な調整は管理者側で扱える設計にしました。
         </p>
       </div>
-
       <div class="strength-card">
-        <div class="strength-icon">🤝</div>
-        <h3 class="strength-title">責任感</h3>
+        <div class="strength-icon">B</div>
+        <h3 class="strength-title">複雑な条件を整理する</h3>
         <p class="strength-desc">
-          来日当初にお世話になった日本語教室に、ボランティアとして恩返し。
-          運営の負担を減らすため Web システムを個人で設計・開発し、
-          従来数時間かかっていた作業を数分に短縮しました。
+          研究やボランティア活動で、データ・制約・利用者の事情を整理し、実装や分析に落とし込む経験を積んできました。
         </p>
       </div>
-
       <div class="strength-card">
-        <div class="strength-icon">🔍</div>
-        <h3 class="strength-title">分析能力</h3>
+        <div class="strength-icon">C</div>
+        <h3 class="strength-title">検証しながら改善する</h3>
         <p class="strength-desc">
-          企業との共同研究で 4 種の SBOM 生成ツールの精度を評価し、
-          精度に影響を与える 4 つの要因を特定。
-          データに基づいて問題の本質を見極め、改善方向を示すことができます。
+          SBOM評価では、結果が不自然な場合に条件や比較方法を確認し、原因を分けて考えながら再検証する姿勢を大切にしています。
         </p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ===== Career Goal ===== -->
 <section id="career">
   <div class="section-wrap">
     <div class="section-header fade-up">
-      <span class="section-icon">🎯</span>
+      <span class="section-icon">07</span>
       <h2 class="section-title">Career Goal</h2>
     </div>
     <div class="career-banner fade-up" data-delay="100">
-      <div class="career-banner-icon">🚀</div>
       <p>
-        ソフトウェアの品質と安全性を支える開発に携わりたいと考えています。
-        大学で学んだ SBOM 分析やサプライチェーンセキュリティの知識を活かし、
-        信頼性の高いシステムの構築に貢献したいです。
-        今後は、大学院での研究成果を基盤に、精度向上に有効な手法やツールを
-        提案・実装し、社会にとって安全で便利なソフトウェアの実現を目指します。
+        チームで協力しながら技術力を高め、実際の課題を解決するシステム開発に関わりたいと考えています。
+        特に、データ分析、AI活用、セキュリティ、Webシステム開発を通じて、利用者にとって安全で使いやすいサービスづくりに貢献したいです。
       </p>
     </div>
   </div>
 </section>
 
-<!-- ===== Contact ===== -->
 <section id="contact">
   <div class="section-wrap">
     <div class="section-header fade-up">
-      <span class="section-icon">📬</span>
+      <span class="section-icon">08</span>
       <h2 class="section-title">Contact</h2>
     </div>
     <div class="contact-grid fade-up" data-delay="100">
-
       <a class="contact-card" href="mailto:q2448309821@gmail.com">
-        <span class="contact-icon">📧</span>
+        <span class="contact-icon">Mail</span>
         <span>
           <span class="contact-label">Email</span>
           <span class="contact-value">q2448309821@gmail.com</span>
         </span>
       </a>
-
       <a class="contact-card" href="https://github.com/2448309821" target="_blank" rel="noopener">
-        <span class="contact-icon">🐙</span>
+        <span class="contact-icon">Git</span>
         <span>
           <span class="contact-label">GitHub</span>
           <span class="contact-value">github.com/2448309821</span>
         </span>
       </a>
-
-      <a class="contact-card" href="#">
-        <span class="contact-icon">💼</span>
+      <a class="contact-card" href="https://2448309821.github.io/waon-rotation-web/" target="_blank" rel="noopener">
+        <span class="contact-icon">Web</span>
         <span>
-          <span class="contact-label">LinkedIn</span>
-          <span class="contact-value">追記予定</span>
+          <span class="contact-label">Waon Rotation</span>
+          <span class="contact-value">日本語教室Webシステム</span>
         </span>
       </a>
-
-      <a class="contact-card" href="#">
-        <span class="contact-icon">📄</span>
-        <span>
-          <span class="contact-label">Resume (PDF)</span>
-          <span class="contact-value">ダウンロード</span>
-        </span>
-      </a>
-
     </div>
   </div>
 </section>
 
-<!-- ===== Footer ===== -->
 <footer>
-  <p>© 2026 Yuanjia Pei · Built with HTML / CSS / JS ·
-     Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></p>
+  <p>© 2026 Yuanjia Pei · Built with HTML / CSS / JavaScript · Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener">GitHub Pages</a></p>
 </footer>
 
 <script src="script.js"></script>
