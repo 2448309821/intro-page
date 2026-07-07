@@ -29,16 +29,20 @@ updateActiveNav();
 
 /* ===== Fade-up on scroll ===== */
 const fadeEls = document.querySelectorAll('.fade-up');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const delay = entry.target.dataset.delay || 0;
-      setTimeout(() => entry.target.classList.add('visible'), delay);
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-fadeEls.forEach(el => observer.observe(el));
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => entry.target.classList.add('visible'), delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => observer.observe(el));
+} else {
+  fadeEls.forEach(el => el.classList.add('visible'));
+}
 
 /* ===== Smooth scroll ===== */
 document.querySelectorAll('a[href^="#"]').forEach(a => {

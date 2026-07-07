@@ -558,15 +558,31 @@ footer {
 }
 
 .fade-up {
-  opacity: 0;
-  transform: translateY(18px);
-  filter: blur(8px);
-  transition: opacity .65s ease, transform .65s ease, filter .65s ease;
-}
-.fade-up.visible {
   opacity: 1;
   transform: translateY(0);
   filter: blur(0);
+  transition: opacity .65s ease, transform .65s ease, filter .65s ease;
+}
+
+html.js .fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  filter: blur(8px);
+}
+
+html.js .fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+@media print {
+  html.js .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
 }
 
 @media (max-width: 1100px) {
