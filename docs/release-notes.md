@@ -10,6 +10,7 @@
 ## Implementation
 - Static HTML, CSS and JavaScript with local Lucide icons; no application backend or account connection.
 - Public output is exported from the local preview using a file allowlist and structured HTML processing.
+- CSS and application JavaScript use content-hashed filenames to avoid mixing a cached old stylesheet with new HTML after deployment.
 - The original local preview remains separate from this public release.
 
 ## Verification
