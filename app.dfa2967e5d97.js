@@ -41,6 +41,43 @@
     if (nav.classList.contains('is-open')) { nav.classList.remove('is-open'); menu.setAttribute('aria-expanded', 'false'); menu.focus(); }
   });
   document.querySelectorAll('[data-print]').forEach(button => button.addEventListener('click', () => window.print()));
+  const toast = $('[data-toast]');
+  const showToast = message => {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    window.setTimeout(() => toast.classList.remove('is-visible'), 2200);
+  };
+  const share = $('[data-share]');
+  share?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      showToast('ページのリンクをコピーしました');
+    } catch {
+      showToast('リンクをコピーできませんでした');
+    }
+  });
+  const quickRail = $('[data-quick-nav]');
+  const quickLinks = [...document.querySelectorAll('[data-quick-link]')];
+  const sectionTargets = quickLinks.map(link => ({ link, target: document.getElementById(link.dataset.quickLink) })).filter(item => item.target);
+  const setActiveSection = id => quickLinks.forEach(link => {
+    const active = link.dataset.quickLink === id;
+    link.classList.toggle('is-active', active);
+    if (active) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  });
+  if (sectionTargets.length && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) setActiveSection(visible.target.id);
+    }, { rootMargin: '-18% 0px -62% 0px', threshold: [0, .2, .6] });
+    sectionTargets.forEach(({ target }) => observer.observe(target));
+  } else if (sectionTargets.length) setActiveSection(sectionTargets[0].target.id);
+  const topButton = $('[data-top]');
+  const updateTop = () => topButton?.toggleAttribute('hidden', window.scrollY < 420);
+  window.addEventListener('scroll', updateTop, { passive: true });
+  updateTop();
+  topButton?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   const slides = [...document.querySelectorAll('[data-feature-slide]')];
   if (slides.length > 1) {
     let active = 0;
