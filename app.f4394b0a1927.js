@@ -92,15 +92,31 @@
     $('[data-feature-next]').addEventListener('click', () => showSlide(1));
   }
   const dialog = $('#visual-dialog');
-  const expand = $('[data-expand]');
-  if (expand) expand.addEventListener('click', () => {
-    const original = $('.project-showcase .screenshot-frame');
-    $('#visual-content').replaceChildren(original.cloneNode(true));
+  const visualContent = $('#visual-content');
+  const zoomButton = $('[data-zoom]');
+  let activeExpand;
+  function setZoom(zoomed) {
+    visualContent.classList.toggle('is-zoomed', zoomed);
+    zoomButton.setAttribute('aria-pressed', String(zoomed));
+    const label = zoomed ? '全体を表示' : '原寸で表示';
+    zoomButton.setAttribute('aria-label', label);
+    zoomButton.title = label;
+    zoomButton.innerHTML = `<i data-lucide="${zoomed ? 'zoom-out' : 'zoom-in'}" aria-hidden="true"></i>`;
+    window.lucide?.createIcons();
+    visualContent.scrollTop = 0;
+    visualContent.scrollLeft = 0;
+  }
+  document.querySelectorAll('[data-expand]').forEach(expand => expand.addEventListener('click', () => {
+    const showcase = expand.closest('.project-showcase');
+    activeExpand = expand;
+    visualContent.replaceChildren(showcase.querySelector('.screenshot-frame').cloneNode(true));
     $('#visual-title').textContent = $('h1').textContent;
-    $('#visual-caption').textContent = $('.project-showcase figcaption').textContent;
+    $('#visual-caption').textContent = showcase.querySelector('figcaption').textContent;
+    setZoom(false);
     dialog.showModal();
-  });
+  }));
+  zoomButton.addEventListener('click', () => setZoom(zoomButton.getAttribute('aria-pressed') !== 'true'));
   $('[data-close]').addEventListener('click', () => dialog.close());
   dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-  dialog.addEventListener('close', () => expand?.focus());
+  dialog.addEventListener('close', () => activeExpand?.focus());
 })();
