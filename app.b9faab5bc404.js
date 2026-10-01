@@ -1,44 +1,29 @@
 (() => {
   if (window.lucide) window.lucide.createIcons();
   const $ = selector => document.querySelector(selector);
-  const settings = $('[data-settings]');
-  const panel = $('#appearance');
-  function closeSettings() { panel.hidden = true; settings.setAttribute('aria-expanded', 'false'); }
-  settings.addEventListener('click', () => {
-    panel.hidden = !panel.hidden;
-    settings.setAttribute('aria-expanded', String(!panel.hidden));
-    if (!panel.hidden) $('#accent').focus();
-  });
-  document.addEventListener('click', event => {
-    if (!panel.hidden && !panel.contains(event.target) && !settings.contains(event.target)) closeSettings();
-  });
-  try {
-    const accent = localStorage.getItem('pei-accent');
-    if (['blue', 'azure'].includes(accent)) { document.body.dataset.accent = accent; $('#accent').value = accent; }
-    $('#compact').checked = localStorage.getItem('pei-compact') === 'true';
-    document.body.classList.toggle('compact', $('#compact').checked);
-  } catch { /* File previews can disallow local storage. */ }
-  $('#accent').addEventListener('change', event => {
-    document.body.dataset.accent = event.target.value;
-    try { localStorage.setItem('pei-accent', event.target.value); } catch {}
-  });
-  $('#compact').addEventListener('change', event => {
-    document.body.classList.toggle('compact', event.target.checked);
-    try { localStorage.setItem('pei-compact', String(event.target.checked)); } catch {}
-  });
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const menu = $('[data-menu]');
   const nav = $('.site-header nav');
-  menu.addEventListener('click', () => {
-    const open = nav.classList.toggle('is-open');
+  nav.id = 'site-nav';
+  menu.setAttribute('aria-controls', nav.id);
+  function setMenu(open) {
+    nav.classList.toggle('is-open', open);
     menu.setAttribute('aria-expanded', String(open));
-  });
-  nav.addEventListener('click', event => {
-    if (event.target.closest('a')) { nav.classList.remove('is-open'); menu.setAttribute('aria-expanded', 'false'); }
+    menu.innerHTML = `<i data-lucide="${open ? 'x' : 'menu'}" aria-hidden="true"></i>`;
+    window.lucide?.createIcons();
+    // The nav precedes the button in the DOM, so move focus into the opened menu.
+    if (open) nav.querySelector('a').focus();
+  }
+  menu.addEventListener('click', () => setMenu(!nav.classList.contains('is-open')));
+  nav.addEventListener('click', event => { if (event.target.closest('a')) setMenu(false); });
+  document.addEventListener('click', event => {
+    // composedPath() is fixed at dispatch, so it still includes the button after its icon is re-rendered.
+    const path = event.composedPath();
+    if (nav.classList.contains('is-open') && !path.includes(nav) && !path.includes(menu)) setMenu(false);
   });
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape') return;
-    if (!panel.hidden) { closeSettings(); settings.focus(); }
-    if (nav.classList.contains('is-open')) { nav.classList.remove('is-open'); menu.setAttribute('aria-expanded', 'false'); menu.focus(); }
+    if (nav.classList.contains('is-open')) { setMenu(false); menu.focus(); }
   });
   document.querySelectorAll('[data-print]').forEach(button => button.addEventListener('click', () => window.print()));
   const toast = $('[data-toast]');
@@ -57,7 +42,6 @@
       showToast('リンクをコピーできませんでした');
     }
   });
-  const quickRail = $('[data-quick-nav]');
   const quickLinks = [...document.querySelectorAll('[data-quick-link]')];
   const sectionTargets = quickLinks.map(link => ({ link, target: document.getElementById(link.dataset.quickLink) })).filter(item => item.target);
   const setActiveSection = id => quickLinks.forEach(link => {
@@ -74,10 +58,15 @@
     sectionTargets.forEach(({ target }) => observer.observe(target));
   } else if (sectionTargets.length) setActiveSection(sectionTargets[0].target.id);
   const topButton = $('[data-top]');
-  const updateTop = () => topButton?.toggleAttribute('hidden', window.scrollY < 420);
+  const firstSection = sectionTargets[0]?.target;
+  const updateTop = () => {
+    topButton?.toggleAttribute('hidden', window.scrollY < 420);
+    // Above the first section nothing should stay highlighted.
+    if (firstSection && firstSection.getBoundingClientRect().top > window.innerHeight * .4) setActiveSection(null);
+  };
   window.addEventListener('scroll', updateTop, { passive: true });
   updateTop();
-  topButton?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  topButton?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
   const slides = [...document.querySelectorAll('[data-feature-slide]')];
   if (slides.length > 1) {
     let active = 0;
@@ -85,8 +74,10 @@
     function showSlide(delta) {
       active = (active + delta + slides.length) % slides.length;
       slides.forEach((slide, index) => { slide.hidden = index !== active; });
-      status.textContent = `${active + 1} / ${slides.length}`;
-      status.setAttribute('aria-label', slides[active].querySelector('figcaption a').textContent);
+      const title = document.createElement('span');
+      title.className = 'sr-only';
+      title.textContent = ` ${slides[active].querySelector('figcaption a').textContent}`;
+      status.replaceChildren(`${active + 1} / ${slides.length}`, title);
     }
     $('[data-feature-prev]').addEventListener('click', () => showSlide(-1));
     $('[data-feature-next]').addEventListener('click', () => showSlide(1));
@@ -115,8 +106,15 @@
     setZoom(false);
     dialog.showModal();
   }));
+  // The screenshot itself is also a target for opening the larger view.
+  document.querySelectorAll('.project-showcase .screenshot-frame').forEach(frame => frame.addEventListener('click', () => frame.closest('.project-showcase').querySelector('[data-expand]').click()));
   zoomButton.addEventListener('click', () => setZoom(zoomButton.getAttribute('aria-pressed') !== 'true'));
   $('[data-close]').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+  // Only a click on the backdrop closes; clicks in the dialog's own padding also target the dialog.
+  dialog.addEventListener('click', event => {
+    if (event.target !== dialog) return;
+    const box = dialog.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
+  });
   dialog.addEventListener('close', () => activeExpand?.focus());
 })();
