@@ -1,25 +1,27 @@
-# Portfolio Release - 2026-09-30
+# Portfolio Release - 2026-10-01
 
 ## Current Behavior
-- Japanese self-introduction with separate school research and personal tool/system development.
-- Individual pages describe motivation, care, results and learning.
+- Japanese self-introduction with separate university/graduate research and personal tool/system development.
+- The first screen lists research focus, the 2026 IEICE General Conference talk and AI-assisted tool development, with direct links to projects, research and contact.
+- Individual pages describe motivation, care, results and learning. Audit-style provenance notes were removed from public copy; fictional test data and unverified third-party artwork remain stated plainly.
 - Games and anime remain independent interests, not professional claims.
-- Actual VisionAuto2, lab-system and Japanese-classroom screenshots are included. Lab and classroom captures use fictional QA data.
-- Character-bearing screenshots remain at the site owner's explicit direction. Public captions now distinguish that display decision from unverified third-party artwork sources and rightsholder permissions; no original artwork or runtime bundle is offered.
+- Actual VisionAuto2, lab-system and Japanese-classroom screenshots are included. Lab and classroom captures use fictional test data.
+- Character-bearing screenshots remain at the site owner's explicit direction. Captions state that the artwork is not the owner's original work and that its source and permission are unverified; the homepage note appears only on slides that contain such artwork. No original artwork or runtime bundle is offered.
 
 ## Implementation
-- Static HTML, CSS and JavaScript with local Lucide icons; no application backend or account connection.
-- Public output is exported from the local preview using a file allowlist and structured HTML processing.
-- CSS and application JavaScript use content-hashed filenames to avoid mixing a cached old stylesheet with new HTML after deployment.
-- The page uses blue, warm and mint section bands, a desktop quick-navigation rail, link-copy feedback and a back-to-top control so the self-introduction is easier to scan.
-- A reserved desktop gutter prevents the rail from covering content in narrow PC windows. Every detail screenshot opens its own caption and image, with fit/original-size switching and a keyboard-scrollable viewport.
-- The original local preview remains separate from this public release.
+- Static HTML, CSS and JavaScript with local Lucide icons and Noto Sans JP from Google Fonts; no application backend or account connection.
+- Public output is exported from the local preview using a file allowlist and structured HTML processing. CSS and application JavaScript use content-hashed filenames.
+- Stylesheet rewritten as one layer: card-based projects, chip tags, status badges, alternating white/soft sections, dark contact band, 12px minimum text and phrase-aware Japanese line breaking.
+- Cards and the hero carousel use WebP thumbnails (hero image 1.9 MB → 79 KB); detail pages and the zoom dialog keep the original PNGs. Images carry intrinsic width/height.
+- The quick-navigation rail appears only on the home page from 1280px, with a reserved gutter up to 1559px. The decorative appearance panel was removed.
+- Open Graph/Twitter metadata and an SVG favicon were added. The mobile menu moves focus into the menu, closes on outside click and Escape. Detail screenshots open the dialog from the image or its button; only backdrop clicks close it.
 
 ## Verification
-- Current local regression: ten tests passed after two new cases first failed as expected; fifty browser page checks at 360/768/1120/1280/1440px passed with no overflow, eager image failures, missing expansion controls or rail overlap.
-- Original-size viewing was confirmed at 360px with a 1425px image, viewport scrolling, correct second-image captions and focus restoration. Lab second-image keyboard opening, fit reset and Escape closing passed.
-- Public package validation and live deployment verification are recorded for each release before handoff.
+- Ten local tests passed; public package validation passed for 32 files and 10 HTML pages.
+- Browser checks at 360/768/1024/1280/1440/1559/1560/1920px: no horizontal overflow, broken images or script errors; minimum rail-to-content gap 54px.
+- Menu, carousel, dialog (image click, inner-edge click, backdrop click) and link copy were exercised. An independent review pass found no P1 issues; its P2 findings were fixed.
 
 ## Remaining Work
 - Cafeteria project has no preserved screenshot and is described in text.
-- Exact character artwork sources and permissions remain unverified, including for the currently displayed screenshots. Detailed joint research materials and application distribution remain out of scope.
+- Exact character artwork sources and permissions remain unverified. Detailed joint research materials and application distribution remain out of scope.
+- Profile could add year/expected completion and a Japanese-language certification if the owner provides them.
