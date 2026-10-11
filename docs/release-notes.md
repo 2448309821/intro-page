@@ -1,27 +1,24 @@
-# Portfolio Release - 2026-10-01
+# Portfolio Release - 2026-10-12
 
 ## Current Behavior
-- Japanese self-introduction with separate university/graduate research and personal tool/system development.
-- The first screen lists research focus, the 2026 IEICE General Conference talk and AI-assisted tool development, with direct links to projects, research and contact.
-- Individual pages describe motivation, care, results and learning. Audit-style provenance notes were removed from public copy; fictional test data and unverified third-party artwork remain stated plainly.
-- Games and anime remain independent interests, not professional claims.
-- Actual VisionAuto2, lab-system and Japanese-classroom screenshots are included. Lab and classroom captures use fictional test data.
-- Character-bearing screenshots remain at the site owner's explicit direction. Captions state that the artwork is not the owner's original work and that its source and permission are unverified; the homepage note appears only on slides that contain such artwork. No original artwork or runtime bundle is offered.
+- Japanese self-introduction with separate research, personal development, and game/anime interests.
+- CharaTab, CharaDesk and both VisionAuto2 screenshots have Japanese UI labels edited into the images. These are introduction images, not claims that the applications themselves have Japanese localization.
+- Layout proportions, displayed coordinates, timings, dates, colors and disconnected states were checked against the original captures.
+- Homepage slides and project thumbnails also use Japanese-labelled versions; the portfolio's own homepage capture was refreshed.
+- LabSchedule and classroom images remain actual Japanese-language test-environment captures with fictional data.
+- Character images are user-confirmed AI-generated unofficial fan creations. A consolidated material note remains on each character project page; original artwork files and application bundles are not distributed.
+- Interactive demos remain removed. Internship screenshots and diagrams with unresolved publication scope remain excluded.
 
 ## Implementation
-- Static HTML, CSS and JavaScript with local Lucide icons and Noto Sans JP from Google Fonts; no application backend or account connection.
-- Public output is exported from the local preview using a file allowlist and structured HTML processing. CSS and application JavaScript use content-hashed filenames.
-- Stylesheet rewritten as one layer: card-based projects, chip tags, status badges, alternating white/soft sections, dark contact band, 12px minimum text and phrase-aware Japanese line breaking.
-- Cards and the hero carousel use WebP thumbnails (hero image 1.9 MB → 79 KB); detail pages and the zoom dialog keep the original PNGs. Images carry intrinsic width/height.
-- The quick-navigation rail appears only on the home page from 1280px, with a reserved gutter up to 1559px. The decorative appearance panel was removed.
-- Open Graph/Twitter metadata and an SVG favicon were added. The mobile menu moves focus into the menu, closes on outside click and Escape. Detail screenshots open the dialog from the image or its button; only backdrop clicks close it.
+- Static HTML/CSS/JavaScript; no app backend, account connection or runtime data is published.
+- Public package uses a file allowlist and content-hashed CSS/JavaScript. Old Chinese screenshots, their thumbnails and obsolete hashed assets were removed from the release tree.
+- Full translated images support chapter crops, gallery selection, fit/original-size viewing and keyboard dismissal. Small WebP thumbnails are used on the homepage.
 
 ## Verification
-- Ten local tests passed; public package validation passed for 32 files and 10 HTML pages.
-- Browser checks at 360/768/1024/1280/1440/1559/1560/1920px: no horizontal overflow, broken images or script errors; minimum rail-to-content gap 54px.
-- Menu, carousel, dialog (image click, inner-edge click, backdrop click) and link copy were exercised. An independent review pass found no P1 issues; its P2 findings were fixed.
+- Build: 11 pages. Tests: 43/43 passed. Public-package verification passed with restricted images excluded.
+- Local and public-candidate browser checks at desktop 1440px and mobile 390px: translated images loaded, no horizontal overflow, gallery/viewer/zoom/close worked.
+- Actual GitHub Pages deployment is checked separately after push; a local test is not evidence that the public deployment has completed.
 
-## Remaining Work
-- Cafeteria project has no preserved screenshot and is described in text.
-- Exact character artwork sources and permissions remain unverified. Detailed joint research materials and application distribution remain out of scope.
-- Profile could add year/expected completion and a Japanese-language certification if the owner provides them.
+## Boundaries
+- Image translation is presentation editing, not application localization or evidence of performance.
+- Source apps, private data, voice/model files and unapproved internship materials are not included.
