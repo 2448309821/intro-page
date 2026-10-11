@@ -156,7 +156,9 @@
     $('#visual-title').textContent = $('h1').textContent;
     const caption = showcase.querySelector('figcaption').cloneNode(true);
     caption.querySelector('.crop-note')?.remove();
-    const sourceNote = showcase.querySelector('.screen-detail') ? 'この詳細に使った元の実画面です。' : '';
+    const sourceNote = showcase.querySelector('.screen-detail')
+      ? (showcase.hasAttribute('data-localized-media') ? '日本語表記版の全体です。' : 'この詳細に使った元の実画面です。')
+      : '';
     $('#visual-caption').textContent = sourceNote + caption.textContent;
     setZoom(false);
     dialog.showModal();
