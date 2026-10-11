@@ -27,3 +27,11 @@
 ## Boundaries
 - Image translation is presentation editing, not application localization or evidence of performance.
 - Source apps, private data, voice/model files and unapproved internship materials are not included.
+
+## Pagewise Japanese Style Review - 2026-10-12
+- Reviewed the homepage and all ten project pages using the local natural-japanese full workflow: lint, outline, terminology, three independent read-only reviewers and a final prose pass. The third-party HumanizerAI API was not called.
+- Replaced long contribution noun lists with actual actions, removed duplicated functional explanations and generic learning conclusions, and retained detailed capabilities, personal interests, research facts and contribution boundaries.
+- The homepage was left unchanged after review. Screenshots, runtime JavaScript and CSS were unchanged; this pass does not claim a second exhaustive screenshot-pixel audit.
+- Public internship pages no longer repeat the same image-withholding message in five chapters. The publication reason remains in the scope section, and restricted screenshots are still excluded.
+- Fresh verification: build generated 11 pages, 47/47 tests passed and the 35-file public package passed link/media/privacy checks. All eleven public-candidate pages were checked at desktop 1440px and mobile 390px with no horizontal overflow or empty feature paragraphs.
+- Additional interaction checks covered a Japanese full-image viewer with original-size switching, shortened feature sections, SBOM result navigation and separate local-only internship media.
