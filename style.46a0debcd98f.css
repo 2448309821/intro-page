@@ -83,7 +83,7 @@ svg{width:20px;height:20px;stroke-width:1.8;flex-shrink:0}
 .featured-image{height:270px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:8px}
 .featured-image img{width:100%;height:100%;object-fit:contain}
 .featured-image.companion{background:#25252b;border-color:#25252b}
-.featured-project figcaption{margin-top:14px;min-height:108px}
+.featured-project figcaption{margin-top:14px;min-height:160px;display:flex;flex-direction:column}
 .featured-project figcaption a{font-size:16px;font-weight:700;color:var(--ink);display:flex;gap:12px;align-items:center;justify-content:space-between}
 .featured-project figcaption a:hover{color:var(--accent)}
 .featured-project figcaption svg{width:18px;height:18px;color:var(--accent)}
@@ -141,6 +141,16 @@ svg{width:20px;height:20px;stroke-width:1.8;flex-shrink:0}
 .project-item:hover h3 a{color:var(--accent)}
 .project-item:hover h3 svg{transform:translate(2px,-2px)}
 .project-item>p{font-size:14px;color:var(--muted);line-height:1.85}
+.project-demo-link,.featured-project figcaption .project-demo-link{position:relative;z-index:2;display:flex;align-items:center;justify-content:flex-start;gap:8px;min-height:44px;margin-top:16px;padding:10px 12px;border:1px solid #c8d4de;border-radius:6px;background:#edf2f5;color:#3b5266;font-size:13px;font-weight:500;line-height:1.5;text-wrap:wrap}
+.project-demo-link svg,.featured-project figcaption .project-demo-link svg{width:18px;height:18px;color:currentColor}
+.project-demo-link svg:last-child{margin-left:auto}
+.project-demo-link:hover,.featured-project figcaption .project-demo-link:hover{background:#e3ebf0;border-color:#acbecb;color:#304b60}
+.project-demo-link:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.personal-grid .project-item{display:flex;flex-direction:column}
+.personal-grid .project-visual-link{flex-shrink:0}
+.personal-grid .tag-list{margin-bottom:16px}
+.personal-grid .project-demo-link{margin-top:auto}
+.featured-project figcaption .project-demo-link{margin-top:auto}
 .project-visual-link{position:relative;z-index:1;display:block;margin:0 -22px;border-bottom:1px solid var(--line);border-radius:var(--radius) var(--radius) 0 0;overflow:hidden;background:var(--soft)}
 .thumbnail .screenshot-frame{height:210px;padding:12px;display:flex;align-items:center;justify-content:center}
 .project-screenshot{width:100%;height:auto;object-fit:contain}
@@ -166,11 +176,13 @@ svg{width:20px;height:20px;stroke-width:1.8;flex-shrink:0}
 .practice-heading p{font-size:14px;color:var(--muted)}
 .practice-grid{display:grid;grid-template-columns:1fr;gap:20px}
 .practice-grid .with-image{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);column-gap:32px;align-content:center;padding:0 28px 0 0}
-.practice-grid .with-image .project-visual-link{grid-column:1;grid-row:1 / span 4;margin:0;border-bottom:0;border-right:1px solid var(--line);border-radius:var(--radius) 0 0 var(--radius)}
+.practice-grid .with-image .project-visual-link{grid-column:1;grid-row:1 / span 5;margin:0;border-bottom:0;border-right:1px solid var(--line);border-radius:var(--radius) 0 0 var(--radius)}
 .practice-grid .with-image .thumbnail .screenshot-frame{height:250px}
 .practice-grid .with-image .item-meta,.practice-grid .with-image h3,.practice-grid .with-image>p,.practice-grid .with-image .tag-list{grid-column:2}
 .practice-grid .with-image .item-meta{margin-top:28px}
 .practice-grid .with-image .tag-list{margin-bottom:28px}
+.practice-grid .with-image:has(.project-demo-link) .tag-list{margin-bottom:12px}
+.practice-grid .with-image .project-demo-link{grid-column:2;margin:0 0 24px}
 .team-case{margin-top:20px}
 .team-case .text-project{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);column-gap:36px}
 .team-case .project-symbol{display:none}
@@ -352,6 +364,7 @@ dialog::backdrop{background:#0d1328c4}
   .featured-top{font-size:12px}
   .featured-image{height:210px}
   .featured-project figcaption a{font-size:15px}
+  .featured-project figcaption{min-height:208px}
   .section-band{padding:56px 0}
   .section-heading{margin-bottom:28px}
   .section-heading h2,.interests-layout h2,.contact-layout h2{font-size:24px}
@@ -380,6 +393,7 @@ dialog::backdrop{background:#0d1328c4}
   .practice-grid .with-image .thumbnail .screenshot-frame{height:220px}
   .practice-grid .with-image .item-meta{margin-top:18px}
   .practice-grid .with-image .tag-list{margin-bottom:0}
+  .practice-grid .with-image .project-demo-link{margin:16px 0 0}
   .team-case .text-project{display:block}
   .team-case .project-item>p{margin-top:4px}
   .team-case .tag-list{margin-top:14px}
