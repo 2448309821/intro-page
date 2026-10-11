@@ -15,7 +15,12 @@
 - Full translated images support chapter crops, gallery selection, fit/original-size viewing and keyboard dismissal. Small WebP thumbnails are used on the homepage.
 
 ## Verification
-- Build: 11 pages. Tests: 43/43 passed. Public-package verification passed with restricted images excluded.
+- Build: 11 pages. Tests: 46/46 passed. Public-package verification passed: 35 allowlisted files, with restricted images excluded.
+- Sitewide language audit covers all page copy, metadata, accessible labels and runtime messages. All 13 catalog screenshots were visually inspected, including two local-only captures; no remaining generic Chinese UI text was identified.
+- Public candidate: all 45 screenshot expansion entries passed full-image and original-size checks. Five local-only entries were checked separately. All 11 pages passed horizontal-overflow checks at 390px; desktop project pages and home slideshow were checked at 1440px.
+- Natural Japanese revisions include project explanations, OCR confidence terminology, questionnaire scope and export descriptions. Three independent wording reviewers and mechanical lint/outline/term checks were used; repetitive navigation and accurate research qualifications were retained intentionally.
+- SBOM evaluation now distinguishes the verified populations: 703 projects for Syft/Trivy/cdxgen, and the 276 successful-generation subset for pip-sbom. The obsolete collected count is no longer presented as the final evaluation population.
+- The portfolio homepage screenshot was recaptured after confirming the active VisionAuto2 image had loaded. Its actual dimensions are 1425x970.
 - Local and public-candidate browser checks at desktop 1440px and mobile 390px: translated images loaded, no horizontal overflow, gallery/viewer/zoom/close worked.
 - Actual GitHub Pages deployment is checked separately after push; a local test is not evidence that the public deployment has completed.
 
