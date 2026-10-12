@@ -42,3 +42,10 @@
 - Fresh build: 11 pages. Tests: 49/49 passed. Public verification passed for 35 allowlisted files, excluding restricted internship images.
 - Reviewed the short introduction with the local natural-japanese quick workflow and a final reading pass. Browser checks covered the changed homepage and CharaTab at 1440px and 390px, hobby expansion, mobile navigation and full-image/original-size viewing.
 - Screenshots, CSS and JavaScript are unchanged. This revision does not claim a new exhaustive image-translation review.
+
+## Project Contribution Review - 2026-10-12
+- Reviewed all ten projects individually. CharaDesk, VisionAuto2, LabSchedule and this site's own page no longer repeat general ownership/AI-development blocks; CharaTab keeps its previous omission.
+- Concrete research responsibilities, Wawon requirements interviews and design work, AVILEN Step 3 versus personal local-app work, and SDPBL teamwork/simulation responsibilities remain.
+- Generic AI-use subsections are omitted. Actual generative-AI extraction in AVILEN is explained with the Step 3 JSON handoff; LabSchedule still states that aggregation computes answer data rather than using AI judgment. Third-party OCR/conversation/voice/model and character-material boundaries remain.
+- Fresh build: 11 pages. Tests: 51/51 passed. Public-package checks passed for 35 files with restricted images excluded. All ten public-candidate project pages were checked at desktop 1440px and mobile 390px: no horizontal overflow, unresolved fragment links or remaining generic AI-use headings.
+- Homepage, project features, image assets, CSS and JavaScript are unchanged. Removed contribution sections also lose their index links, with numbering regenerated.
