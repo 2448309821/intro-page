@@ -35,3 +35,10 @@
 - Public internship pages no longer repeat the same image-withholding message in five chapters. The publication reason remains in the scope section, and restricted screenshots are still excluded.
 - Fresh verification: build generated 11 pages, 47/47 tests passed and the 35-file public package passed link/media/privacy checks. All eleven public-candidate pages were checked at desktop 1440px and mobile 390px with no horizontal overflow or empty feature paragraphs.
 - Additional interaction checks covered a Japanese full-image viewer with original-size switching, shortened feature sections, SBOM result navigation and separate local-only internship media.
+
+## Personal Homepage Voice - 2026-10-12
+- Rewrote the homepage introduction in a lighter first-person voice, keeping research, useful AI-assisted tools for self and others, and games/anime. Concrete scheduling and screen-operation examples replace the generic career closing.
+- CharaTab no longer repeats the requested ownership/AI-use paragraphs or their index link. Its five illustrated features and consolidated character-material note remain. Specific contributions on other project pages are unchanged.
+- Fresh build: 11 pages. Tests: 49/49 passed. Public verification passed for 35 allowlisted files, excluding restricted internship images.
+- Reviewed the short introduction with the local natural-japanese quick workflow and a final reading pass. Browser checks covered the changed homepage and CharaTab at 1440px and 390px, hobby expansion, mobile navigation and full-image/original-size viewing.
+- Screenshots, CSS and JavaScript are unchanged. This revision does not claim a new exhaustive image-translation review.
