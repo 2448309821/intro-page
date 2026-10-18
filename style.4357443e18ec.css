@@ -157,7 +157,7 @@ svg{width:20px;height:20px;stroke-width:1.8;flex-shrink:0}
 #development{background:var(--bg)}
 .practice-grid{display:grid;grid-template-columns:1fr;gap:20px}
 .practice-grid .with-image{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);column-gap:32px;align-content:center;padding:0 28px 0 0}
-.practice-grid .with-image .project-visual-link{grid-column:1;grid-row:1 / span 5;margin:0;border-bottom:0;border-right:1px solid var(--line);border-radius:var(--radius) 0 0 var(--radius)}
+.practice-grid .with-image .project-visual-link{grid-column:1;grid-row:1 / span 6;margin:0;border-bottom:0;border-right:1px solid var(--line);border-radius:var(--radius) 0 0 var(--radius)}
 .practice-grid .with-image .thumbnail .screenshot-frame{height:250px}
 .practice-grid .with-image .item-meta,.practice-grid .with-image h3,.practice-grid .with-image>p,.practice-grid .with-image .card-facts,.practice-grid .with-image .tag-list{grid-column:2}
 .practice-grid .with-image .item-meta{margin-top:28px}
@@ -180,6 +180,11 @@ svg{width:20px;height:20px;stroke-width:1.8;flex-shrink:0}
 .card-facts>div{display:grid;grid-template-columns:4em 1fr;gap:10px;font-size:13px;line-height:1.7}
 .card-facts dt{color:var(--faint);font-weight:500}
 .card-facts dd{margin:0;color:var(--text)}
+.card-code-links{position:relative;z-index:2;display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:14px}
+.card-code-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:500;color:var(--accent)}
+.card-code-link:hover{color:var(--accent-deep);text-decoration:underline}
+.card-code-link svg{width:15px;height:15px}
+.practice-grid .with-image .card-code-links{grid-column:2;margin:-14px 0 24px}
 .card-rights{margin-top:12px;font-size:11.5px;line-height:1.7;color:var(--faint)}
 .project-group-heading{display:flex;justify-content:space-between;align-items:end;gap:20px;margin:56px 0 18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
 .section-heading+.project-group-heading{margin-top:0}
@@ -195,6 +200,36 @@ svg{width:20px;height:20px;stroke-width:1.8;flex-shrink:0}
 .profile-interests>p{font-size:14px;color:var(--muted);margin-bottom:14px}
 .profile-interests .interest-list>li{background:#fff}
 .skill-rows>div{grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr)}
+.intro-role{display:inline-block;margin-top:18px;padding:4px 12px;border-radius:999px;background:#fff;border:1px solid var(--line-strong);font-size:13px;font-weight:500;color:var(--accent-deep)}
+.intro-lang{margin-top:8px;font-size:13px;color:var(--muted)}
+.strengths{margin-bottom:48px;padding:24px 28px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--radius)}
+.strengths h3{font-size:18px;margin-bottom:8px}
+.strengths-lead{font-size:14px;line-height:1.85;color:var(--text);margin-bottom:16px}
+.strengths dl{margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.strengths dt{font-size:13px;font-weight:700;color:var(--accent);margin-bottom:4px}
+.strengths dd{margin:0;font-size:14px;line-height:1.85;color:var(--text)}
+.workflow-heading{margin-top:32px}
+.workflow-list{margin:0;padding:6px 20px;background:#fff;border:1px solid var(--line);border-radius:var(--radius)}
+.workflow-list>div{display:grid;grid-template-columns:10em 1fr;gap:14px;padding:11px 0;font-size:13.5px;line-height:1.8}
+.workflow-list>div+div{border-top:1px solid var(--line)}
+.workflow-list dt{color:var(--muted);font-weight:500}
+.workflow-list dd{margin:0;color:var(--ink)}
+.result-table-wrap{margin:18px 0;overflow-x:auto}
+.result-table{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+.result-table caption{caption-side:bottom;text-align:left;font-size:12.5px;line-height:1.7;color:var(--muted);padding-top:8px}
+.result-table th,.result-table td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+.result-table thead th{font-size:12.5px;color:var(--muted);font-weight:500;background:var(--soft)}
+.result-table tbody th{font-weight:700;color:var(--ink)}
+.result-section{margin:8px 0 40px}
+.result-link{margin-top:6px;font-size:14px}
+.result-link{display:flex;flex-wrap:wrap;gap:4px 20px}
+.result-link a{display:inline-flex;align-items:center;gap:6px;color:var(--accent)}
+.code-note{margin-top:4px;font-size:13px;color:var(--muted)}
+.result-link svg{width:15px;height:15px}
+.result-table caption{white-space:normal}
+.code-sample{margin:20px 0 0}
+.code-sample figcaption{font-size:13px;line-height:1.8;color:var(--muted);margin-bottom:8px}
+.code-sample pre{margin:0;padding:16px 18px;overflow-x:auto;background:#1f2633;color:#e6ebf2;border-radius:var(--radius);font:12.5px/1.7 Consolas,"SFMono-Regular",Menlo,monospace}
 @media(max-width:1000px){
   .intro-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .intro-stats>div:nth-child(3){border-left:0}
@@ -203,6 +238,9 @@ svg{width:20px;height:20px;stroke-width:1.8;flex-shrink:0}
   .project-group-heading p{margin-top:6px}
 }
 @media(max-width:760px){
+  .strengths{padding:20px}
+  .strengths dl{grid-template-columns:1fr;gap:14px}
+  .workflow-list>div{grid-template-columns:1fr;gap:2px}
   .intro-affiliation{display:flex;flex-wrap:wrap;row-gap:2px}
   .intro-affiliation span{margin-left:8px;padding-left:0;border-left:0}
   .intro-lead{font-size:18px;margin-top:22px}
@@ -212,7 +250,7 @@ svg{width:20px;height:20px;stroke-width:1.8;flex-shrink:0}
   .intro-stats dd{font-size:12px}
   .project-group-heading{margin-top:44px}
   .project-group-heading h3{font-size:18px}
-  .card-facts>div{grid-template-columns:3.6em 1fr;font-size:12.5px}
+  .card-facts>div{grid-template-columns:4.4em 1fr;font-size:12.5px}
 }
 
 
@@ -404,6 +442,7 @@ dialog::backdrop{background:#0d1328c4}
   .practice-grid .with-image .thumbnail .screenshot-frame{height:220px}
   .practice-grid .with-image .item-meta{margin-top:18px}
   .practice-grid .with-image .tag-list{margin-bottom:0}
+  .practice-grid .with-image .card-code-links{margin:14px 0 0}
   .contact-links a,.contact-links button{padding:14px 16px;gap:14px}
   .footer-inner{flex-wrap:wrap;gap:6px 16px}
   .footer-inner>span{display:none}

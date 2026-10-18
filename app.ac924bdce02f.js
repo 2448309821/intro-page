@@ -1,6 +1,5 @@
 (() => {
   if (typeof document === 'undefined') return;
-  if (window.lucide) window.lucide.createIcons();
   const $ = selector => document.querySelector(selector);
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const menu = $('[data-menu]');
@@ -10,8 +9,8 @@
   function setMenu(open) {
     nav.classList.toggle('is-open', open);
     menu.setAttribute('aria-expanded', String(open));
-    menu.innerHTML = `<i data-lucide="${open ? 'x' : 'menu'}" aria-hidden="true"></i>`;
-    window.lucide?.createIcons();
+    menu.querySelector('[data-icon-closed]').hidden = open;
+    menu.querySelector('[data-icon-open]').hidden = !open;
     // The nav precedes the button in the DOM, so move focus into the opened menu.
     if (open) nav.querySelector('a').focus();
   }
@@ -139,8 +138,8 @@
     const label = zoomed ? '全体を表示' : '原寸で表示';
     zoomButton.setAttribute('aria-label', label);
     zoomButton.title = label;
-    zoomButton.innerHTML = `<i data-lucide="${zoomed ? 'zoom-out' : 'zoom-in'}" aria-hidden="true"></i>`;
-    window.lucide?.createIcons();
+    zoomButton.querySelector('[data-icon-closed]').hidden = zoomed;
+    zoomButton.querySelector('[data-icon-open]').hidden = !zoomed;
     visualContent.scrollTop = 0;
     visualContent.scrollLeft = 0;
   }
