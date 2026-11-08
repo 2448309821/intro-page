@@ -33,6 +33,23 @@
     toast.classList.add('is-visible');
     window.setTimeout(() => toast.classList.remove('is-visible'), 2200);
   };
+  const fontButton = $('[data-font-size]');
+  const fontLevels = [['', '標準'], ['l', '大'], ['xl', '特大']];
+  const applyFont = (level, announce) => {
+    const [value, label] = fontLevels[level];
+    if (value) document.documentElement.dataset.font = value;
+    else delete document.documentElement.dataset.font;
+    fontButton.title = `文字サイズ：${label}`;
+    fontButton.setAttribute('aria-label', `文字サイズを変更（現在：${label}）`);
+    if (announce) showToast(`文字サイズ：${label}`);
+  };
+  let fontLevel = Math.max(0, fontLevels.findIndex(([value]) => value === (document.documentElement.dataset.font || '')));
+  applyFont(fontLevel, false);
+  fontButton.addEventListener('click', () => {
+    fontLevel = (fontLevel + 1) % fontLevels.length;
+    applyFont(fontLevel, true);
+    try { localStorage.setItem('font-size', fontLevels[fontLevel][0]); } catch {}
+  });
   const share = $('[data-share]');
   share?.addEventListener('click', async () => {
     try {
